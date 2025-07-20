@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Verse TV - Landing Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0,0,0,0.85);
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      color: #fff;
+      z-index: 999;
+      display: none;
+      width: 90%;
+      max-width: 400px;
+    }
+
+    .popup h2 {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .popup a.button {
+      display: inline-block;
+      padding: 12px 25px;
+      background: #ff2e63;
+      color: #fff;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .popup img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Video -->
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="https://files.catbox.moe/vjmwhb.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+
+  <!-- Popup -->
+  <div class="popup" id="popup">
+    <h2>To continue watching, please subscribe to Verse TV</h2>
+    <a href="https://www.gravelroat.info/click?offer_id=31495&pub_id=269631&pub_click_id=ADD_CLICK_ID_HERE&site=PASS_SITE_HERE" class="button" target="_blank">
+      Subscribe Now
+    </a>
+    <br>
+    <img src="https://chat.openai.com/cdn-cgi/imagedelivery/0bDaYgDb9kDo1Xl4dtcweQ/32fc7913-38ac-4a3a-f267-2b0a647c476d/public" alt="Verse TV Banner">
+  </div>
+
+  <script>
+    // Show popup after 50 seconds
+    setTimeout(() => {
+      document.getElementById('popup').style.display = 'block';
+    }, 50000); // 50,000 milliseconds = 50 seconds
+  </script>
+
+</body>
+</html>
