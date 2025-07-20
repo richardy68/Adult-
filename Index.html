@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Verse TV - Landing Page</title>
+  <title>Ves TV - Landing Page</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     * {
@@ -13,18 +13,25 @@
 
     body, html {
       height: 100%;
+      background: black;
       font-family: Arial, sans-serif;
       overflow: hidden;
     }
 
+    .video-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80vh;
+      margin-top: 20px;
+    }
+
     #bg-video {
-      position: fixed;
-      top: 0;
-      left: 0;
-      min-width: 100%;
-      min-height: 100%;
+      width: 90%;
+      max-height: 100%;
+      border-radius: 15px;
       object-fit: cover;
-      z-index: -1;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
     }
 
     .popup {
@@ -32,62 +39,65 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background: rgba(0,0,0,0.85);
-      padding: 30px;
-      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.9);
+      padding: 40px 25px;
+      border-radius: 16px;
       text-align: center;
       color: #fff;
       z-index: 999;
       display: none;
-      width: 90%;
-      max-width: 400px;
+      width: 95%;
+      max-width: 600px;
     }
 
     .popup h2 {
-      font-size: 20px;
-      margin-bottom: 20px;
+      font-size: 22px;
+      margin-bottom: 25px;
     }
 
     .popup a.button {
       display: inline-block;
-      padding: 12px 25px;
+      padding: 14px 28px;
       background: #ff2e63;
       color: #fff;
-      border-radius: 6px;
+      border-radius: 8px;
       text-decoration: none;
       font-weight: bold;
-      margin-bottom: 20px;
+      font-size: 16px;
+      margin-bottom: 25px;
     }
 
     .popup img {
       max-width: 100%;
-      border-radius: 10px;
+      border-radius: 12px;
     }
   </style>
 </head>
 <body>
 
-  <!-- Background Video -->
-  <video autoplay muted loop playsinline id="bg-video">
-    <source src="https://files.catbox.moe/vjmwhb.mp4" type="video/mp4">
-    Your browser does not support HTML5 video.
-  </video>
+  <!-- Video Wrapper with Margin -->
+  <div class="video-wrapper">
+    <video autoplay muted loop playsinline id="bg-video">
+      <source src="https://files.catbox.moe/vjmwhb.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+  </div>
 
   <!-- Popup -->
   <div class="popup" id="popup">
-    <h2>To continue watching, please subscribe to Verse TV</h2>
+    <h2>To continue watching, please subscribe to Ves TV for more videos</h2>
     <a href="https://www.gravelroat.info/click?offer_id=31495&pub_id=269631&pub_click_id=ADD_CLICK_ID_HERE&site=PASS_SITE_HERE" class="button" target="_blank">
       Subscribe Now
     </a>
     <br>
-    <img src="https://chat.openai.com/cdn-cgi/imagedelivery/0bDaYgDb9kDo1Xl4dtcweQ/32fc7913-38ac-4a3a-f267-2b0a647c476d/public" alt="Verse TV Banner">
+    <img src="https://i.postimg.cc/qqb9HVCV/Screenshot-20250720-105747.jpg" alt="Verse TV Banner">
   </div>
 
   <script>
-    // Show popup after 50 seconds
+    // Show popup after 8 seconds
     setTimeout(() => {
       document.getElementById('popup').style.display = 'block';
-    }, 50000); // 50,000 milliseconds = 50 seconds
+    }, 8000); // 8000 milliseconds = 8 seconds
   </script>
 
 </body>
