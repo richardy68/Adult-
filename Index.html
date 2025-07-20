@@ -5,12 +5,7 @@
   <title>Ves TV - Landing Page</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body, html {
       height: 100%;
       background: black;
@@ -97,7 +92,7 @@
   <!-- Video Wrapper -->
   <div class="video-wrapper">
     <video autoplay muted loop playsinline id="bg-video">
-      <source src="https://files.catbox.moe/vjmwhb.mp4" type="video/mp4">
+      <source id="video-source" src="" type="video/mp4">
       Your browser does not support HTML5 video.
     </video>
     <button class="unmute-btn" onclick="unmuteVideo()">🔊 Tap to Unmute</button>
@@ -114,17 +109,43 @@
   </div>
 
   <script>
-    // Show popup after 28 seconds
+    // Video list
+    const videos = [
+      "https://files.catbox.moe/vjmwhb.mp4", // Video 1
+      "https://files.catbox.moe/rgjpnv.mp4"  // Video 2
+    ];
+
+    // Get ?v= number from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    let videoIndex = parseInt(urlParams.get("v")) || 0;
+    if (videoIndex >= videos.length) videoIndex = 0;
+
+    // Set video source
+    const videoElement = document.getElementById("bg-video");
+    document.getElementById("video-source").src = videos[videoIndex];
+    videoElement.load();
+
+    // Show popup after 30 seconds
     setTimeout(() => {
       document.getElementById('popup').style.display = 'block';
     }, 30000);
 
-    // Unmute function
+    // Stop video after 30 seconds
+    setTimeout(() => {
+      videoElement.pause();
+    }, 30000);
+
+    // Unmute logic
     function unmuteVideo() {
-      const video = document.getElementById('bg-video');
-      video.muted = false;
-      video.volume = 1.0;
+      videoElement.muted = false;
+      videoElement.volume = 1.0;
     }
+
+    // Reload with next video on browser back
+    window.addEventListener("popstate", () => {
+      const next = (videoIndex + 1) % videos.length;
+      window.location.href = `?v=${next}`;
+    });
   </script>
 
 </body>
